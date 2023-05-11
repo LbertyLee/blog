@@ -36,7 +36,7 @@ server:
 # 日志配置
 logging:
   level:
-    com.ruoyi: debug
+    com.blog: debug
     org.springframework: warn
 
 # Spring配置
@@ -54,21 +54,16 @@ spring:
        max-file-size:  10MB
        # 设置总上传的文件大小
        max-request-size:  20MB
-  # 服务模块
-  devtools:
-    restart:
-      # 热部署开关
-      enabled: true
   # redis 配置
   redis:
     # 地址
-    host: localhost
+    host: 124.223.15.205
     # 端口，默认为6379
-    port: 6379
+    port: 36379
     # 数据库索引
-    database: 0
+    database: 8
     # 密码
-    password: 
+    password: rzDX32tGoA3Z1go7
     # 连接超时时间
     timeout: 10s
     lettuce:
