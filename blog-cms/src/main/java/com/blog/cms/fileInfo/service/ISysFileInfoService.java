@@ -1,7 +1,12 @@
 package com.blog.cms.fileInfo.service;
 
 import java.util.List;
+
+import com.blog.cms.fileInfo.domain.FileInfoVO;
 import com.blog.cms.fileInfo.domain.SysFileInfo;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.Resource;
 
 /**
  * 文件管理Service接口
@@ -18,6 +23,14 @@ public interface ISysFileInfoService
      * @return 文件管理
      */
     public SysFileInfo selectSysFileInfoByFileObjectName(String fileObjectName);
+
+    /**
+     * 文件存储服务
+     */
+
+//    public FileInfoVO upload(MultipartFile file) ;
+
+
     /**
      * 查询文件管理
      * 

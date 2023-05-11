@@ -161,7 +161,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/1.webp");
+  background-image: url("../assets/images/1.jpg");
   background-size: cover;
 }
 .title {

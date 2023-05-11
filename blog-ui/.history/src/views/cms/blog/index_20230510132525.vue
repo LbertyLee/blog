@@ -43,7 +43,12 @@
       <!-- <el-table-column label="ID" align="center" prop="id" /> -->
       <el-table-column label="首图预览" align="center" prop="blogPic" >
         <template slot-scope="scope">
-          <el-image style="width: 120px;height: 60px;" :src="scope.row.blogPic" lazy  :preview-src-list="[scope.row.blogPic]"/>
+          <el-image
+              style="width: 120px;height: 60px;"
+              :src="scope.row.blogPic"
+              lazy
+              :preview-src-list="[scope.row.blogPic]">
+            </el-image>
         </template>
       </el-table-column>
       <el-table-column label="标题" align="center" prop="title" />

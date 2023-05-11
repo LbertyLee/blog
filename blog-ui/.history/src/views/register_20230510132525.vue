@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <el-form ref="registerForm" :model="registerForm" :rules="registerRules" class="register-form">
-      <h3 class="title">注册</h3>
+      <h3 class="title">若依后台管理系统</h3>
       <el-form-item prop="username">
         <el-input v-model="registerForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
@@ -55,7 +55,7 @@
           <span v-else>注 册 中...</span>
         </el-button>
         <div style="float: right;">
-          <router-link class="link-type" :to="'/cmsLogin'">使用已有账户登录</router-link>
+          <router-link class="link-type" :to="'/login'">使用已有账户登录</router-link>
         </div>
       </el-form-item>
     </el-form>
@@ -130,7 +130,7 @@ export default {
               dangerouslyUseHTMLString: true,
               type: 'success'
             }).then(() => {
-              this.$router.push("/cmsLogin");
+              this.$router.push("/login");
             }).catch(() => {});
           }).catch(() => {
             this.loading = false;
@@ -151,7 +151,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../../assets/images/1.webp");
+  background-image: url("../assets/images/login-background.jpg");
   background-size: cover;
 }
 .title {

@@ -42,6 +42,8 @@ public class CommonController
     @Autowired
     private ISysFileInfoService sysFileInfoService;
 
+
+
     /**
      * 通用下载请求
      * 
@@ -86,8 +88,9 @@ public class CommonController
      * 通用上传请求
      */
     @PostMapping("/common/upload")
-    public AjaxResult uploadFile(MultipartFile file) throws Exception
+    public AjaxResult uploadFile(MultipartFile file)
     {
+//       return  AjaxResult.success(sysFileInfoService.upload(file)) ;
         try
         {
             // 上传文件路径
@@ -138,6 +141,7 @@ public class CommonController
         {
             return AjaxResult.error(e.getMessage());
         }
+
     }
 
     /**

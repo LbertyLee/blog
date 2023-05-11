@@ -9,7 +9,8 @@ blog:
   # 实例演示开关
   demoEnabled: true
   # 文件路径 示例（ Windows配置D:/blog/uploadPath，Linux配置 /home/blog/uploadPath）
-  profile: D:/blog/uploadPath
+#  profile: /home/lihong/blog/uploadPath
+  profile: D:/home/lihong/blog/uploadPath
   # 获取ip地址开关
   addressEnabled: false
   # 验证码类型 math 数组计算 char 字符验证
@@ -34,10 +35,10 @@ server:
       min-spare: 100
 
 # 日志配置
-logging:
-  level:
-    com.blog: debug
-    org.springframework: warn
+#logging:
+#  level:
+#    com.blog: debug
+#    org.springframework: warn
 
 # Spring配置
 spring:
@@ -76,6 +77,28 @@ spring:
         max-active: 8
         # #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1ms
+  #文件存储配置
+  file-storage:
+    #默认使用的存储平台
+    default-platform: local-1
+    #缩略图后缀，例如【.min.jpg】【.png】
+    thumbnail-suffix: ".jpg"
+    # 本地存储
+    local-plus:
+      # 存储平台标识
+      - platform: local-1
+        #启用存储
+        enable-storage: true
+        #启用访问（线上请使用 Nginx 配置，效率更高）
+        enable-access: true
+        # 访问域名，例如：“http://127.0.0.1:8030/”，注意后面要和 path-patterns 保持一致，“/”结尾，本地存储建议使用相对路径，方便后期更换域名
+        domain: ""
+        # 基础路径
+        base-path: local/
+        # 访问路径
+        path-patterns: /**
+        # 存储路径
+        storage-path: /home/lihong/blog/uploadPath
 
 # token配置
 token:

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <h3 class="title">登录</h3>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -50,7 +50,7 @@
           <span v-else>登 录 中...</span>
         </el-button>
         <div style="float: right;" v-if="register">
-          <router-link class="link-type" :to="'/register'">立即注册</router-link>
+          <router-link class="link-type" :to="'/cmsRegister'">立即注册</router-link>
         </div>
       </el-form-item>
     </el-form>
@@ -67,7 +67,7 @@ import Cookies from "js-cookie";
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 
 export default {
-  name: "Login",
+  name: "cmsLogin",
   data() {
     return {
       codeUrl: "",
@@ -91,7 +91,7 @@ export default {
       // 验证码开关
       captchaOnOff: true,
       // 注册开关
-      register: false,
+      register: true,
       redirect: undefined
     };
   },
@@ -141,7 +141,7 @@ export default {
             Cookies.remove('rememberMe');
           }
           this.$store.dispatch("Login", this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || "/" }).catch(()=>{});
+            this.$router.push({ path: "/cms/main/cmsIndex" });
           }).catch(() => {
             this.loading = false;
             if (this.captchaOnOff) {
@@ -161,7 +161,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/1.webp");
+  background-image: url("../../assets/images/login-background.jpg");
   background-size: cover;
 }
 .title {

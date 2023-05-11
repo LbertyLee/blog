@@ -2,16 +2,23 @@ package com.blog.cms.fileInfo.service.impl;
 
 import java.util.List;
 
+import cn.xuyanwu.spring.file.storage.FileInfo;
+import cn.xuyanwu.spring.file.storage.FileStorageService;
+import com.blog.cms.fileInfo.domain.FileInfoVO;
 import com.blog.common.config.RuoYiConfig;
 import com.blog.common.constant.Constants;
 import com.blog.common.utils.DateUtils;
 import com.blog.common.utils.StringUtils;
 import com.blog.common.utils.file.FileUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.blog.cms.fileInfo.mapper.SysFileInfoMapper;
 import com.blog.cms.fileInfo.domain.SysFileInfo;
 import com.blog.cms.fileInfo.service.ISysFileInfoService;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.annotation.Resource;
 
 /**
  * 文件管理Service业务层处理
@@ -25,10 +32,29 @@ public class SysFileInfoServiceImpl implements ISysFileInfoService
     @Autowired
     private SysFileInfoMapper sysFileInfoMapper;
 
+    /**
+     * 文件存储服务
+     */
+//    @Autowired
+//    private FileStorageService fileStorageService;
+
     @Override
     public SysFileInfo selectSysFileInfoByFileObjectName(String fileObjectName) {
         return sysFileInfoMapper.selectSysFileInfoByFileObjectName(fileObjectName);
     }
+
+    /**
+     * 上传
+     *
+     * @return {@link FileInfoVO}
+     */
+//    @Override
+//    public FileInfoVO upload(MultipartFile file) {
+//        FileInfo upload = fileStorageService.of(file).setPlatform("local-1").upload();
+//        FileInfoVO fileInfoVO = new FileInfoVO();
+//        BeanUtils.copyProperties(upload,fileInfoVO);
+//        return fileInfoVO;
+//    }
 
     /**
      * 查询文件管理
